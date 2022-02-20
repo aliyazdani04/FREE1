@@ -16,7 +16,7 @@ print ("welcome, Created By Ali HL\n")
 print ("Please subscribe to the channel to receive updates! : for telegram : @Ali_yazdani0\n")
 
 bot = Bot("hcbtjrnrlhbabjsthiugklnbrsrcpccd")
-target=input("Please Enter Your Guid (Group):")
+target="کپی کن اینجا"
 
 print ("\nThe robot was successfully activated.")
 
