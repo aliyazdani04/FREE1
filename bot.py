@@ -15,7 +15,7 @@ print ("welcome, Created By Ali HL\n")
 
 print ("Please subscribe to the channel to receive updates! : for telegram : @Ali_yazdani0\n")
 
-bot = Bot("onvgjcdxhoaiushkfwfcieoggfmfagju")
+bot = Bot("hcbtjrnrlhbabjsthiugklnbrsrcpccd")
 target=input("Please Enter Your Guid (Group):")
 
 print ("\nThe robot was successfully activated.")
@@ -48,15 +48,15 @@ def alert(guid,user,link=False):
 	if link : haslink = "گزاشتن لینک در گروه ممنوع میباشد .\n\n"
 
 	if coun == 1:
-		bot.sendMessage(target, "💢 اخطار [ @"+user+" ] \n"+haslink+" شما (2/3) اخطار دریافت کرده اید ")
+		bot.sendMessage(target, "💢 اخطار [ @"+user+" ] \n"+haslink+" شما (1/3) اخطار دریافت کرده اید ")
     
 	elif coun == 2:
 		bot.sendMessage(target, "💢 اخطار [ @"+user+" ] \n"+haslink+" شما (2/3) اخطار دریافت کرده اید ")
 
 	elif coun == 3:
 		blacklist.append(guid)
-		bot.sendMessage(target, "🚫 کاربر [ @"+user+" ] \n (3/3) اخطار دریافت کرد ، بنابراین اکنون اخراج میشود .")
-		bot.banGroupMember(target, guid)
+		bot.sendMessage(target, "🚫 کاربر [ @"+user+" ] \n (3/3) اخطار دریافت کرد ،اخراجش کن😉 .")
+		
 
 
 while True:
@@ -177,8 +177,18 @@ while True:
 								bot.sendMessage(target, "✅  قوانین بروزرسانی شد", message_id=msg.get("message_id"))
 								# rules.close()
 							except:
+								bot.sendMessage(target, "❌ لطفا دستور را به درستی وارد کنید", message_id=msg.get("message_id"))	
+
+						elif msg.get("text") == "ارام" and msg.get("author_object_guid") in admins:
+							try:
+								number = 5
+								bot.setGroupTimer(target,number)
+
+								bot.sendMessage(target, "✅ حالت آرام برای "+str(number)+"ثانیه فعال شد", message_id=msg.get("message_id"))
+
+							except:
 								bot.sendMessage(target, "❌ لطفا دستور را به درستی وارد کنید", message_id=msg.get("message_id"))
-						
+								
 						elif msg.get("text") == "آرام" and msg.get("author_object_guid") in admins:
 							try:
 								number = 15
@@ -189,16 +199,6 @@ while True:
 							except:
 								bot.sendMessage(target, "❌ لطفا دستور را به درستی وارد کنید", message_id=msg.get("message_id"))
 								
-						elif msg.get("text") == "ارام" and msg.get("author_object_guid") in admins:
-							try:
-								number = 5
-								bot.setGroupTimer(target,number)
-
-								bot.sendMessage(target, "✅ حالت آرام برای "+str(number)+"ثانیه فعال شد", message_id=msg.get("message_id"))
-
-							except:
-								bot.sendMessage(target, "❌ لطفا دستور را به درستی وارد کنید", message_id=msg.get("message_id"))		
-
 						elif msg.get("text") == "حالت آرام" and msg.get("author_object_guid") in admins:
 							try:
 								number = 10
@@ -207,7 +207,7 @@ while True:
 								bot.sendMessage(target, "✅ حالت آرام برای "+str(number)+"ثانیه فعال شد", message_id=msg.get("message_id"))
 
 							except:
-								bot.sendMessage(target, "❌ لطفا دستور را به درستی وارد کنید", message_id=msg.get("message_id"))
+								bot.sendMessage(target, "❌ لطفا دستور را به درستی وارد کنید", message_id=msg.get("message_id"))		
 								
 						elif msg.get("text") == "برداشتن حالت آرام" and msg.get("author_object_guid") in admins:
 							try:
