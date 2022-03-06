@@ -16,7 +16,7 @@ print ("welcome, Created By Ali HL\n")
 print ("Please subscribe to the channel to receive updates! : for telegram : @Ali_yazdani0\n")
 
 bot = Bot("hcbtjrnrlhbabjsthiugklnbrsrcpccd")
-target="کپی کن اینجا"
+target="g0B42eB01795ccc9733dd496e0731e7f"
 
 print ("\nThe robot was successfully activated.")
 
@@ -45,18 +45,21 @@ def alert(guid,user,link=False):
 	coun = int(alerts.count(guid))
 
 	haslink = ""
-	if link : haslink = "گزاشتن لینک در گروه ممنوع میباشد .\n\n"
+	if link : haslink = "."
 
 	if coun == 1:
-		bot.sendMessage(target, "💢 اخطار [ @"+user+" ] \n"+haslink+" شما (1/3) اخطار دریافت کرده اید ")
+		bot.sendMessage(target, "دادا[ @"+user+" ] \n"+haslink+"لینک نفرس")
     
 	elif coun == 2:
-		bot.sendMessage(target, "💢 اخطار [ @"+user+" ] \n"+haslink+" شما (2/3) اخطار دریافت کرده اید ")
+		bot.sendMessage(target, "دابش [ @"+user+" ] \n"+haslink+" :-)لینک یا تبلیغ نفرس حقیقتن")
+	
+	elif coun == 3:
+		bot.sendMessage(target, "داش [ @"+user+" ] \n"+haslink+" یه بار دیگه تبلیغ بفرستی ریمو میشیا🤨")
 
 	elif coun == 3:
 		blacklist.append(guid)
-		bot.sendMessage(target, "🚫 کاربر [ @"+user+" ] \n (3/3) اخطار دریافت کرد ،اخراجش کن😉 .")
-		
+		bot.sendMessage(target, "دوستمون  [ @"+user+" ] \n"+haslink+" حرف گوش نکرد ریمو شد😔")
+		bot.banGroupMember(target, guid)
 
 
 while True:
@@ -141,6 +144,18 @@ while True:
 								bot.sendMessage(target, "پیام مورد نظر پاک شد...", message_id=msg.get("message_id"))
 							except:
 								print("err pak")
+						
+						elif msg.get("text").startswith("لینک") or msg.get("text").startswith("link"):
+							try:
+								bot.sendMessage(target, "https://rubika.ir/joing/CAFDBBDH0EDESZBMBGQAIRKKQDLWWPHM", message_id=msg.get("message_id"))
+							except:
+								print("err CheKhabar")
+						
+						elif msg.get("text").startswith("ادمین") or msg.get("text").startswith("admin"):
+							try:
+								bot.sendMessage(target, "اگه با سازنده گپکاری داری این آیدیشه 👇🏼 \n @ali_yazdani04", message_id=msg.get("message_id"))
+							except:
+								print("err bot answer"
 																
 						elif msg.get("text") == "سنجاق" and msg.get("author_object_guid") in admins :
 							try:
@@ -198,6 +213,16 @@ while True:
 
 							except:
 								bot.sendMessage(target, "❌ لطفا دستور را به درستی وارد کنید", message_id=msg.get("message_id"))
+								      
+						elif msg.get("text") == "ارام3" and msg.get("author_object_guid") in admins:
+							try:
+								number = 3
+								bot.setGroupTimer(target,number)
+
+								bot.sendMessage(target, "✅ حالت آرام برای "+str(number)+"ثانیه فعال شد", message_id=msg.get("message_id"))
+
+							except:
+								bot.sendMessage(target, "❌ لطفا دستور را به درستی وارد کنید", message_id=msg.get("message_id"))		      
 								
 						elif msg.get("text") == "حالت آرام" and msg.get("author_object_guid") in admins:
 							try:
@@ -277,7 +302,7 @@ while True:
 					
 					elif data["type"]=="AddedGroupMembers":
 					                user = bot.getUserInfo(data['peer_objects'][0]['object_guid'])["data"]["user"]["first_name"]
-					                bot.sendMessage(target, f"سلام {user} گ҉ل҉ 😘🌹 \n • به گروهمون {name} خیـلی خوش اومدی 😘 \nلطفا قوانین رو رعایت کن .\n توهم بیا برا گپت ربات بساز👇🏼😍\n@Robot_HL1", message_id=msg["message_id"])
+					                bot.sendMessage(target, f"سلام {user} 😘🌹 \n • به گروهمون {name}  خوش اومدی  \nلطفا به قوانین احترام بزار ", message_id=msg["message_id"])
 					
 					elif data["type"]=="LeaveGroup":
 						try:
@@ -289,7 +314,7 @@ while True:
 							
 					elif data["type"]=="JoinedGroupByLink":
 					                user = bot.getUserInfo(data['performer_object']['object_guid'])["data"]["user"]["first_name"]
-					                bot.sendMessage(target, f"سلام {user} گ҉ل҉ 😘🌹 \n • به گروهمون {name} خیـلی خوش اومدی 😘 \nلطفا قوانین رو رعایت کن .\n توهم بیا برا گپت ربات بساز👇🏼😍\n@Robot_HL1", message_id=msg["message_id"])
+					                bot.sendMessage(target, f"سلام {user} 😘🌹 \n • به گروهمون {name}  خوش اومدی  \nلطفا به قوانین احترام بزار ", message_id=msg["message_id"])
 
 				else:
 					if "forwarded_from" in msg.keys() and bot.getMessagesInfo(target, [msg.get("message_id")])[0]["forwarded_from"]["type_from"] == "Channel" and not msg.get("author_object_guid") in admins :
